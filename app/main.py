@@ -40,8 +40,14 @@ def read_health():
 # User Registration Endpoint
 # ------------------------------------------------------------------------------
 @app.post(
-    "/auth/register", 
-    response_model=UserResponse, 
+    "/users/register",
+    response_model=UserResponse,
+    status_code=status.HTTP_201_CREATED,
+    tags=["users"]
+)
+@app.post(
+    "/auth/register",
+    response_model=UserResponse,
     status_code=status.HTTP_201_CREATED,
     tags=["auth"]
 )
@@ -60,6 +66,7 @@ def register(user_create: UserCreate, db: Session = Depends(get_db)):
 # ------------------------------------------------------------------------------
 # User Login Endpoints
 # ------------------------------------------------------------------------------
+@app.post("/users/login", response_model=TokenResponse, tags=["users"])
 @app.post("/auth/login", response_model=TokenResponse, tags=["auth"])
 def login_json(user_login: UserLogin, db: Session = Depends(get_db)):
     """Login with JSON payload"""
