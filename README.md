@@ -34,13 +34,13 @@ The project is based on the instructor's Module 12 code, with additional API rou
 
 ## Local Setup
 
-Python 3.10 and Docker are required.
+Python 3.11 and Docker are required.
 
 ```bash
 git clone https://github.com/Xiaodu7/Assignment12.git
 cd Assignment12
 
-python3.10 -m venv venv
+python3.11 -m venv venv
 source venv/bin/activate
 
 pip install -r requirements.txt
